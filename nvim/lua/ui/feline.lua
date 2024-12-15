@@ -319,14 +319,7 @@ local c = {
   },
   gitbranch = {
     -- provider = "git_branch",
-    provider = function()
-      local git_exists = require('feline.providers.git').git_info_exists()
-      if git_exists then
-        return "yes"
-      else
-        return "no"
-      end
-    end,
+    provider = "git_branch",
     icon = " ",
     hl = "UserSLGitBranch",
     right_sep = { str = "  ", hl = "UserSLGitBranch" },

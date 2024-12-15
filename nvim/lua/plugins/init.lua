@@ -13,10 +13,14 @@ return {
     dependencies = {
       'kyazdani42/nvim-web-devicons'
     },
+    config = function()
+      require('gitsigns').setup()
+    end,
   },
   {
     'nanozuki/tabby.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
+  -- used only by feline (for now)
   'lewis6991/gitsigns.nvim',
 }
