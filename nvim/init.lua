@@ -7,6 +7,7 @@ require('lazy').setup({
   -- automatically check for plugin updates
   checker = { enabled = false }
 })
+require('gitsigns').setup()
 
 vim.cmd [[colorscheme duskfox]]
 
