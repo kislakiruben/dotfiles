@@ -1,5 +1,4 @@
--------------------- HELPERS ------------------------------
-
+-- helpers
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
 
 local function opt(scope, key, value)
@@ -7,7 +6,7 @@ local function opt(scope, key, value)
   if scope ~= 'o' then scopes['o'][key] = value end
 end
 
--------------------- OPTIONS -------------------------------
+-- options
 local indent = 2
 
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs

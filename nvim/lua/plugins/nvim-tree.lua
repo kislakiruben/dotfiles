@@ -2,7 +2,10 @@
 return {
   'nvim-tree/nvim-tree.lua',
   cmd = 'NvimTreeFindFileToggle',
-  keys = { { '<Leader>e', '<cmd>NvimTreeFindFileToggle<CR>' } },
+  keys = {
+    { '<Leader>e', '<cmd>NvimTreeFindFileToggle<CR>' },
+    -- { '<Leader>f', '<cmd>NvimTreeFindFileFocus<CR>' }
+  },
   dependencies = {
     'nvim-tree/nvim-web-devicons', -- optional, for file icons
   },

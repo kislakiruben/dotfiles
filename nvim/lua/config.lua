@@ -1,5 +1,4 @@
--------------------- HELPERS ------------------------------
-
+-- helpers
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g      -- a table to access global variables
 
@@ -9,8 +8,7 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
------------------------ PLUGIN MANAGER --------------------
--- Bootstrap lazy.nvim
+-- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -27,7 +25,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--------------------- CONFIG -------------------------------
+--config
 g['mapleader'] = ' ' -- leader key
 g['maplocalleader'] = ' ' -- leader key
 
@@ -37,12 +35,13 @@ g['node_host_prog'] = vim.call('system', 'which neovim-node-host | tr -d "\n"')
 g['peekup_paste_before'] = '<leader>P'
 g['peekup_paste_after'] = '<leader>p'
 
+cmd [[au BufWritePre <buffer> lua vim.lsp.buf.format()]]
 cmd [[au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
 
--- Remove trailing space
+-- remove trailing space
 cmd [[autocmd InsertLeavePre * :%s/\s\+$//e]]
 
--------------------- MAPPINGS -------------------------------
+-- mappings
 map('n', '<Leader>sv', ':source $MYVIMRC<CR>')
 map('n', '<Space>', '<Nop>', { noremap = true, silent = true })
 

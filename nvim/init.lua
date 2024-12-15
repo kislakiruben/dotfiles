@@ -1,11 +1,14 @@
-require('options');
-require('config');
-require("lazy").setup({
+require('options')
+require('config')
+require('lazy').setup({
   spec = {
-    { import = "plugins" },
+    { import = 'plugins' },
   },
   -- automatically check for plugin updates
-  checker = { enabled = true }
+  checker = { enabled = false }
 })
 
 vim.cmd [[colorscheme duskfox]]
+
+require('ui.tabby')
+require('ui.feline')
