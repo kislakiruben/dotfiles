@@ -7,6 +7,9 @@ return {
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
 
+  -- Copilot
+  'github/copilot.vim',
+
   -- Appearance
   {
     'freddiehaddad/feline.nvim',
@@ -32,5 +35,5 @@ return {
       "echasnovski/mini.pick",         -- optional
     },
     config = true
-  }
+  },
 }
