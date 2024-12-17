@@ -164,7 +164,7 @@ end
 
 local line = {
   hl = "TabLineFill",
-  layout = "active_wins_at_tail",
+  layout = "active_tab_with_wins",
   head = {
     { cwd, hl = "UserTLHead" },
     { "", hl = "UserTLHeadSep" },

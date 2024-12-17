@@ -1,11 +1,11 @@
 -- helpers
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
-local g = vim.g      -- a table to access global variables
+local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
+local g = vim.g     -- a table to access global variables
 
 local function map(mode, lhs, rhs, opts)
-    local options = {noremap = true}
-    if opts then options = vim.tbl_extend('force', options, opts) end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true }
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- bootstrap lazy.nvim
@@ -16,7 +16,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -26,7 +26,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 --config
-g['mapleader'] = ' ' -- leader key
+g['mapleader'] = ' '      -- leader key
 g['maplocalleader'] = ' ' -- leader key
 
 g['node_host_prog'] = vim.call('system', 'which neovim-node-host | tr -d "\n"')
@@ -58,10 +58,10 @@ map('n', '<Leader>sv', ':source $MYVIMRC<CR>')
 map('n', '<Space>', '<Nop>', { noremap = true, silent = true })
 
 -- <Tab> to navigate the completion menu
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
-map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', { expr = true })
+map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true })
 
-map('n', '\\', '<cmd>noh<CR>')    -- Clear highlights
+map('n', '\\', '<cmd>noh<CR>') -- Clear highlights
 
 map('n', '<Leader>j', ':j<CR>')
 map('n', '<Leader>J', ':j!<CR>')
