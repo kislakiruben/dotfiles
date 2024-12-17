@@ -35,8 +35,20 @@ g['node_host_prog'] = vim.call('system', 'which neovim-node-host | tr -d "\n"')
 g['peekup_paste_before'] = '<leader>P'
 g['peekup_paste_after'] = '<leader>p'
 
-cmd [[au BufWritePre <buffer> lua vim.lsp.buf.format()]]
-cmd [[au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
+-- format on save
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+  callback = function(args)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = args.buf,
+      callback = function()
+        vim.lsp.buf.format { async = false, id = args.data.client_id }
+      end,
+    })
+  end
+})
+
+cmd [[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
 
 -- remove trailing space
 cmd [[autocmd InsertLeavePre * :%s/\s\+$//e]]
