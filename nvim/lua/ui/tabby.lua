@@ -216,5 +216,6 @@ local line = {
 }
 
 require('tabby').setup({
-  tabline = line
+  preset = "tab_only",
+  -- tabline = line
 })
