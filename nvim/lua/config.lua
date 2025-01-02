@@ -50,9 +50,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 cmd [[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
 
--- remove trailing space
-cmd [[autocmd InsertLeavePre * :%s/\s\+$//e]]
-
 -- mappings
 map('n', '<Leader>sv', ':source $MYVIMRC<CR>')
 map('n', '<Space>', '<Nop>', { noremap = true, silent = true })
