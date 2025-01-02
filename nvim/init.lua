@@ -13,3 +13,4 @@ vim.cmd [[colorscheme duskfox]]
 
 require('ui.tabby')
 require('ui.feline')
+require('ui.harpoon')

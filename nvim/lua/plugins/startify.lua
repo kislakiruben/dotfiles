@@ -12,6 +12,7 @@ return {
     vim.g['startify_bookmarks'] = {
       { i = '~/.config/nvim/init.lua' },
       { p = '~/.config/nvim/lua/plugins' },
+      { u = '~/.config/nvim/lua/ui' },
       { c = '~/.config/nvim/lua/config.lua' },
       { o = '~/.config/nvim/lua/options.lua' },
       { s = '~/.config/nvim/after/plugin' },
