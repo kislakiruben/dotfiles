@@ -125,14 +125,14 @@ _G._generate_user_statusline_highlights = function()
 
   -- stylua: ignore
   local sl_colors = {
-    Black   = { fg = pal.black,   bg = pal.white },
-    Red     = { fg = pal.red,     bg = pal.sl.bg },
-    Green   = { fg = pal.green,   bg = pal.sl.bg },
-    Yellow  = { fg = pal.yellow,  bg = pal.sl.bg },
-    Blue    = { fg = pal.blue,    bg = pal.sl.bg },
+    Black   = { fg = pal.black, bg = pal.white },
+    Red     = { fg = pal.red, bg = pal.sl.bg },
+    Green   = { fg = pal.green, bg = pal.sl.bg },
+    Yellow  = { fg = pal.yellow, bg = pal.sl.bg },
+    Blue    = { fg = pal.blue, bg = pal.sl.bg },
     Magenta = { fg = pal.magenta, bg = pal.sl.bg },
-    Cyan    = { fg = pal.cyan,    bg = pal.sl.bg },
-    White   = { fg = pal.white,   bg = pal.black },
+    Cyan    = { fg = pal.cyan, bg = pal.sl.bg },
+    White   = { fg = pal.white, bg = pal.black },
   }
 
   local colors = {}
@@ -315,29 +315,30 @@ local c = {
       return fmt(" %s ", vi.text[vim.fn.mode()])
     end,
     hl = vi_mode_hl,
-    right_sep = { str = " ", hl = vi_sep_hl },
+    right_sep = { str = "", hl = vi_sep_hl },
   },
   gitbranch = {
     -- provider = "git_branch",
-    provider = "git_branch",
+    provider = function()
+      return fmt("%s", vim.b.gitsigns_head)
+    end,
     icon = " ",
     hl = "UserSLGitBranch",
-    right_sep = { str = "  ", hl = "UserSLGitBranch" },
-    enabled = true,
-    -- enabled = function()
-    --  return vim.b.gitsigns_status_dict ~= nil
-    -- end,
+    left_sep = { str = " ", hl = "UserSLGitBranch" },
+    enabled = function()
+      return vim.b.gitsigns_status_dict ~= nil
+    end,
   },
   file_type = {
     provider = function()
-      return fmt(" %s ", vim.bo.filetype:upper())
+      return fmt(" %s ", vim.bo.filetype:lower())
     end,
     hl = "UserSLAlt",
   },
   fileinfo = {
     provider = { name = "file_info", opts = { type = "relative" } },
     hl = "UserSLAlt",
-    left_sep = { str = " ", hl = "UserSLAltSep" },
+    left_sep = { str = " ", hl = "UserSLAltSep" },
     right_sep = { str = " ", hl = "UserSLAltSep" },
   },
   file_enc = {
@@ -421,11 +422,11 @@ local c = {
 local active = {
   { -- left
     c.vimode,
-    c.gitbranch,
     c.fileinfo,
+    c.gitbranch,
     c.default, -- must be last
   },
-  { -- right
+  {            -- right
     c.lsp_status,
     c.lsp_error,
     c.lsp_warn,
