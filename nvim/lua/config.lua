@@ -49,6 +49,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 cmd [[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
+cmd [[autocmd CmdLineEnter * set cmdheight=2]]
+cmd [[autocmd CmdLineLeave * set cmdheight=0]]
 
 -- mappings
 map('n', '<Leader>sv', ':source $MYVIMRC<CR>')
