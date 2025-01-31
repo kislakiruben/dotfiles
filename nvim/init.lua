@@ -13,7 +13,11 @@ vim.cmd [[colorscheme duskfox]]
 
 require('ui.tabby')
 require('ui.feline')
-require('ui.harpoon')
+require("time-tracker").setup({
+  data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
+  tracking_events = { "BufEnter", "BufWinEnter", "CursorMoved", "CursorMovedI", "WinScrolled" },
+  tracking_timeout_seconds = 5 * 60, -- 5 minutes
+})
 require("formatter").setup({
   logging = false,
   filetype = {

@@ -53,9 +53,17 @@ return {
     },
     config = true
   },
+
+  -- Track time
   {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "3rd/time-tracker.nvim",
+    dependencies = {
+      "3rd/sqlite.nvim",
+    },
+    event = "VeryLazy",
+    opts = {
+      data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
+    },
+  },
   }
 }
