@@ -25,9 +25,6 @@ return {
   'mhartington/formatter.nvim',
   'prettier/vim-prettier',
 
-  -- Copilot
-  -- 'github/copilot.vim',
-
   -- Appearance
   'EdenEast/nightfox.nvim',
   {
