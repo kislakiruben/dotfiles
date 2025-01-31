@@ -1,6 +1,8 @@
 -- helpers
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g     -- a table to access global variables
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
@@ -35,22 +37,14 @@ g['node_host_prog'] = vim.call('system', 'which neovim-node-host | tr -d "\n"')
 g['peekup_paste_before'] = '<leader>P'
 g['peekup_paste_after'] = '<leader>p'
 
--- format on save
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-  callback = function(args)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = args.buf,
-      callback = function()
-        vim.lsp.buf.format { async = false, id = args.data.client_id }
-      end,
-    })
-  end
+augroup("__formatter__", { clear = true })
+autocmd("BufWritePost", {
+  group = "__formatter__",
+  command = ":FormatWrite",
 })
-
 cmd [[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
-cmd [[autocmd CmdLineEnter * set cmdheight=2]]
-cmd [[autocmd CmdLineLeave * set cmdheight=0]]
+-- cmd [[autocmd CmdLineEnter * set cmdheight=2]]
+-- cmd [[autocmd CmdLineLeave * set cmdheight=0]]
 
 -- mappings
 map('n', '<Leader>sv', ':source $MYVIMRC<CR>')

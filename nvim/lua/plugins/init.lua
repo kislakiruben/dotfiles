@@ -17,10 +17,13 @@ return {
   'hrsh7th/cmp-vsnip',
   'hrsh7th/vim-vsnip',
 
-  -- LSPs
+  -- LSPs, linters and formatters
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
+  'mfussenegger/nvim-lint',
+  'mhartington/formatter.nvim',
+  'prettier/vim-prettier',
 
   -- Copilot
   'github/copilot.vim',
