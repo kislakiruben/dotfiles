@@ -50,3 +50,4 @@ opt('o', 'background', 'dark')
 opt('o', 'synmaxcol', 200)     -- syntax file is slow,
 opt('o', 'foldlevelstart', 99) -- no fold closed
 opt('o', 'showtabline', 2)     -- always show tabline
+opt('o', 'colorcolumn', "80")
