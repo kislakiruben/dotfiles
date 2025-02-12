@@ -49,18 +49,6 @@ return {
     config = true
   },
 
-  -- Track time
-  {
-    "3rd/time-tracker.nvim",
-    dependencies = {
-      "3rd/sqlite.nvim",
-    },
-    event = "VeryLazy",
-    opts = {
-      data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
-    },
-  },
-
   -- Bookmark files and code
   {
     "otavioschwanck/arrow.nvim",
