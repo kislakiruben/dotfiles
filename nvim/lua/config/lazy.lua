@@ -17,12 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("config.options")
 require("config.keymap")
-
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  -- automatically check for plugin updates
-  checker = { enabled = false }
+  checker = { 
+    enabled = false
+  }
 })
 

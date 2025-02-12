@@ -1,5 +1,4 @@
 require("config.lazy")
-vim.cmd [[colorscheme duskfox]]
 
 require('ui.tabby')
 require('ui.feline')

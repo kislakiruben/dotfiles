@@ -25,8 +25,6 @@ return {
   'mhartington/formatter.nvim',
   'prettier/vim-prettier',
 
-  -- Appearance
-  'EdenEast/nightfox.nvim',
   {
     'freddiehaddad/feline.nvim',
     dependencies = {
