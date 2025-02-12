@@ -22,8 +22,6 @@ return {
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   'mfussenegger/nvim-lint',
-  'mhartington/formatter.nvim',
-  'prettier/vim-prettier',
 
   {
     'freddiehaddad/feline.nvim',
@@ -35,7 +33,7 @@ return {
     'nanozuki/tabby.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
- 
+
   -- Bookmark files and code
   {
     "otavioschwanck/arrow.nvim",
