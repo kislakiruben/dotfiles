@@ -1,14 +1,4 @@
-require('options')
-require('config')
-require('lazy').setup({
-  spec = {
-    { import = 'plugins' },
-  },
-  -- automatically check for plugin updates
-  checker = { enabled = false }
-})
-require('gitsigns').setup()
-
+require("config.lazy")
 vim.cmd [[colorscheme duskfox]]
 
 require('ui.tabby')
@@ -35,4 +25,3 @@ require("formatter").setup({
     require("formatter.defaults.prettierd")
   }
 })
-require("lspconfig").biome.setup {}
