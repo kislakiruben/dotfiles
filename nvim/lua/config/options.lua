@@ -13,7 +13,6 @@ vim.g.mapleader = " "
 vim.g.peekup_paste_before = '<leader>P'
 vim.g.peekup_paste_after = '<leader>p'
 
-
 opt('b', 'expandtab', true)                          -- Use spaces instead of tabs
 opt('b', 'shiftwidth', indent)                       -- Size of an indent
 opt('b', 'smartindent', true)                        -- Insert indents automatically
