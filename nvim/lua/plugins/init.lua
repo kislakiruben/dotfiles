@@ -35,20 +35,7 @@ return {
     'nanozuki/tabby.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
-  -- used only by feline (for now)
-  'lewis6991/gitsigns.nvim',
-  {
-    'NeogitOrg/neogit',
-    dependencies = {
-      'nvim-lua/plenary.nvim',  -- required
-      'sindrets/diffview.nvim', -- optional - Diff integration
-
-      -- Only one of these is needed.
-      'nvim-telescope/telescope.nvim', -- optional
-    },
-    config = true
-  },
-
+ 
   -- Bookmark files and code
   {
     "otavioschwanck/arrow.nvim",
