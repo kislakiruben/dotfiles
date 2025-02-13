@@ -6,6 +6,7 @@ return {
   opts = {
     input = { enabled = true },
     indent = { enabled = true },
+    notify = { enabled = true },
     notifier = { enabled = true },
     scope = { enabled = true },
     words = { enabled = true },

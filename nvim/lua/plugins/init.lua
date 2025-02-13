@@ -1,10 +1,4 @@
 return {
-  -- Useful status updates for LSP
-  {
-    'j-hui/fidget.nvim',
-    config = true,
-  },
-
   {
     'nanozuki/tabby.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
