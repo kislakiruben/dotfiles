@@ -1,7 +1,4 @@
 return {
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
   -- Useful status updates for LSP
   {
     'j-hui/fidget.nvim',
