@@ -8,21 +8,6 @@ return {
     config = true,
   },
 
-  -- Autocomplete
-  'hrsh7th/vim-vsnip-integ',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-vsnip',
-  'hrsh7th/vim-vsnip',
-
-  -- LSPs, linters and formatters
-  'neovim/nvim-lspconfig',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'mfussenegger/nvim-lint',
-
   {
     'freddiehaddad/feline.nvim',
     dependencies = {
