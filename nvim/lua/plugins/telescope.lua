@@ -12,16 +12,30 @@ return {
   lazy = false,
   opts = {
     pickers = {
-      find_files = {
-        hidden = true,
+      buffers = {
+        layout_config = {
+          height = 0.2
+        }
       },
-      git_files = {
-        hidden = true,
+      current_buffer_fuzzy_find = {
+        theme = "dropdown",
+      },
+      find_files = {
+        hidden = false,
+        theme = "ivy",
+      },
+      live_grep = {
+        theme = "ivy",
       },
     },
     defaults = {
       file_ignore_patterns = {
         "node_modules/*",
+      },
+      layout_config = {
+        bottom_pane = {
+          preview_cutoff = 60,
+        },
       },
     },
     extensions = {
@@ -35,13 +49,9 @@ return {
     require("telescope").load_extension("git_file_history")
   end,
   keys = {
-    { '<Leader>g',  '<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>t',  '<cmd>Telescope find_files theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>fg', '<cmd>Telescope live_grep theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>b',  '<cmd>Telescope buffers theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>fh', '<cmd>Telescope help_tags theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>gt', '<cmd>Telescope git_files theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>fk', '<cmd>Telescope keymaps theme=get_ivy layout_config={height=0.5}<CR>' },
-    { '<Leader>fc', '<cmd>Telescope builtin theme=get_ivy layout_config={height=0.5}<CR>' },
+    { "<Leader>g", '<cmd>Telescope buffers<CR>' },
+    { "<Leader>b", '<cmd>Telescope current_buffer_fuzzy_find<CR>' },
+    { "<Leader>f", '<cmd>Telescope find_files<CR>' },
+    { "<Leader>t", '<cmd>Telescope live_grep<CR>' },
   },
 }
