@@ -12,6 +12,8 @@ local indent = 2
 vim.g.mapleader = " "
 vim.g.peekup_paste_before = '<leader>P'
 vim.g.peekup_paste_after = '<leader>p'
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 opt('b', 'expandtab', true)                          -- Use spaces instead of tabs
 opt('b', 'shiftwidth', indent)                       -- Size of an indent
