@@ -1,9 +1,4 @@
 return {
-  {
-    'nanozuki/tabby.nvim',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-  },
-
   -- Bookmark files and code
   {
     "otavioschwanck/arrow.nvim",
