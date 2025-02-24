@@ -7,13 +7,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local lspconfig_defaults = require("lspconfig").util.default_config
-      lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-        "force",
-        lspconfig_defaults.capabilities,
-        require("cmp_nvim_lsp").default_capabilities()
-      )
-
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -50,7 +43,6 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/vim-vsnip-integ",
-      "hrsh7th/vim-vsnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
@@ -59,9 +51,11 @@ return {
     config = function()
       require("cmp").setup({
         sources = {
-          {
-            name = "nvim_lsp",
-          },
+          { name = "nvim_lsp" },
+          { name = "buffer" },
+          { name = "path" },
+          { name = "cmdline" },
+          { name = "vsnip" },
         },
       })
     end
