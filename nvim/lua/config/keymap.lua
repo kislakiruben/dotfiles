@@ -12,7 +12,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", opts)
 vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', { expr = true })
 vim.keymap.set('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true })
 
- -- Clear highlights
+-- Clear highlights
 vim.keymap.set('n', '\\', '<cmd>noh<CR>')
 
 vim.keymap.set('n', '<Leader>w', ':w<CR>')
@@ -40,3 +40,14 @@ vim.keymap.set('n', 'QQ', ':q!<CR>')
 
 -- paste on selection
 vim.keymap.set('x', 'p', [["_dP]])
+
+vim.keymap.set('n', '<Leader>o', function()
+  vim.diagnostic.config {
+    virtual_lines = not vim.diagnostic.config().virtual_lines
+  }
+end, { desc = 'Toggle virtual lines' })
+vim.keymap.set('n', '<Leader>l', function()
+  vim.diagnostic.config {
+    virtual_text = not vim.diagnostic.config().virtual_text
+  }
+end, { desc = 'Toggle virtual text' })
