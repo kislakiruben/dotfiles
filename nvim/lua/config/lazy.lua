@@ -15,14 +15,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("config.options")
-require("config.keymap")
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  checker = { 
-    enabled = false
+  checker = {
+    enabled = true,
+    notify = false,
   }
 })
-

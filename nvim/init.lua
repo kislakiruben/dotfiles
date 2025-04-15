@@ -1,3 +1,5 @@
+require("config.options")
+require("config.keymap")
 require("config.lazy")
 require("ui.tabby")
 require("ui.lsp_progress")
