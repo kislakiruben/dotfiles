@@ -10,6 +10,11 @@ return {
     -- { '<Leader>f', '<cmd>NvimTreeFindFileFocus<cr>' }
   },
   config = {
+    on_attach = function(bufnr)
+      local api = require("nvim-tree.api")
+      api.config.mappings.default_on_attach(bufnr)
+      vim.keymap.set("n", "<Esc>", api.tree.close, { buffer = bufnr })
+    end,
     respect_buf_cwd = true,
     sort_by = "case_sensitive",
     git = {},
