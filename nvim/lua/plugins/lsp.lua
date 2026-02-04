@@ -15,24 +15,23 @@ return {
         "html",
         "jsonls",
         "lua_ls",
-        "sorbet",   -- ruby
+        "sorbet", -- ruby
         "tailwindcss",
-        "vtsls",    -- js, ts
+        "vtsls",  -- js, ts
       }
     })
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({})
-      end,
-      ["vtsls"] = function()
-        require("lspconfig").vtsls.setup({
-          root_dir = require("lspconfig").util.root_pattern(
-            ".git",
-            "yarn.lock",
-            "package-lock.json",
-            "pnpm-lock.yaml"
-          ),
-        })
+
+    -- LSP keymaps (applied when any LSP attaches)
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local opts = { buffer = args.buf }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
       end,
     })
   end
