@@ -18,6 +18,7 @@ return {
       { z = '~/.zshrc' },
       { g = '~/.gitconfig' },
       { t = '~/.tmux.conf' },
+      { a = '~/.oh-my-zsh/custom' },
     }
   end,
 }
