@@ -21,7 +21,7 @@ return {
         theme = "dropdown",
       },
       find_files = {
-        hidden = false,
+        hidden = true,
         theme = "ivy",
       },
       live_grep = {
