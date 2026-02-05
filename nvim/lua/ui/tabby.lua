@@ -113,7 +113,7 @@ end
 ---
 ---NOTE: This is a global because I dont known where this file will be in your config
 ---and it is needed for the autocmd below
-_G._genreate_user_tabline_highlights = function()
+_G._generate_user_tabline_highlights = function()
   local pal = generate_pallet_from_colorscheme()
 
   -- stylua: ignore
@@ -147,12 +147,12 @@ _G._genreate_user_tabline_highlights = function()
   set_highlights(vim.tbl_extend("force", colors, groups))
 end
 
-_genreate_user_tabline_highlights()
+_generate_user_tabline_highlights()
 
 vim.api.nvim_create_augroup("UserTablineHighlightGroups", { clear = true })
 vim.api.nvim_create_autocmd({ "SessionLoadPost", "ColorScheme" }, {
   callback = function()
-    _genreate_user_tabline_highlights()
+    _generate_user_tabline_highlights()
   end,
 })
 
