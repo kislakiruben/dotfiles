@@ -4,9 +4,6 @@ return {
     "3rd/sqlite.nvim",
   },
   event = "VeryLazy",
-  opts = {
-    data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
-  },
   config = function()
     require("time-tracker").setup({
       data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
