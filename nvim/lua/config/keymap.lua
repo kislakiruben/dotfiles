@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-vim.g['node_host_prog'] = vim.call('system', 'which neovim-node-host | tr -d "\n"')
+vim.g['node_host_prog'] = vim.fn.exepath("neovim-node-host")
 
 vim.cmd [[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=200}]]
 -- cmd [[autocmd CmdLineEnter * set cmdheight=2]]
