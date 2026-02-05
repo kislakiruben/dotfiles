@@ -56,15 +56,18 @@ end
 ---@param name string
 ---@return table
 local function get_highlight(name)
-  local hl = vim.api.nvim_get_hl_by_name(name, true)
+  local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
   if hl.link then
     return get_highlight(hl.link)
   end
 
-  local result = parse_style(hl.style)
-  result.fg = hl.foreground and hex(hl.foreground)
-  result.bg = hl.background and hex(hl.background)
-  result.sp = hl.special and hex(hl.special)
+  local result = {}
+  result.fg = hl.fg and hex(hl.fg)
+  result.bg = hl.bg and hex(hl.bg)
+  result.sp = hl.sp and hex(hl.sp)
+  result.bold = hl.bold
+  result.italic = hl.italic
+  result.underline = hl.underline
 
   return result
 end
