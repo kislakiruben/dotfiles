@@ -9,7 +9,7 @@ return {
     { "<Leader>e", "<cmd>NvimTreeFindFileToggle<cr>" },
     -- { '<Leader>f', '<cmd>NvimTreeFindFileFocus<cr>' }
   },
-  config = {
+  opts = {
     on_attach = function(bufnr)
       local api = require("nvim-tree.api")
       api.config.mappings.default_on_attach(bufnr)
