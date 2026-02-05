@@ -14,7 +14,6 @@ return {
       { p = '~/.config/nvim/lua/plugins' },
       { u = '~/.config/nvim/lua/ui' },
       { c = '~/.config/nvim/lua/config' },
-      { s = '~/.config/nvim/after/plugin' },
       { z = '~/.zshrc' },
       { g = '~/.gitconfig' },
       { t = '~/.tmux.conf' },
