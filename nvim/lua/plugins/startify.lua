@@ -5,9 +5,9 @@ return {
   keys = { { '<Leader>S', '<cmd>Startify<CR>' } },
   config = function()
     vim.g['startify_lists'] = {
-      { type = 'bookmarks', header = { 'Bookmarks' } },
       { type = 'dir',       header = { 'Current Directory' } },
       { type = 'files',     header = { 'Recent Files' } },
+      { type = 'bookmarks', header = { 'Bookmarks' } },
     }
     vim.g['startify_bookmarks'] = {
       { i = '~/.config/nvim/init.lua' },
